@@ -14,12 +14,10 @@ function NavBar() {
               <div className="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul className="navbar-nav">
                   <li className="nav-item">
-                    <NavLink to='/categoria/tienda' className={ ({isActive}) => isActive ? 'boton-sombra' : 'boton' }>
-                      <label className="nav-link" href="#action1">Tienda<span className="sr-only">(current)</span></label>
-                    </NavLink>
+                    <Link to='/categoria/tienda' className="nav-link">Tienda<span className="sr-only">(current)</span></Link>
                   </li>
                   <li className="nav-item">
-                      <NavLink to="/categoria/juegos" className="nav-link">Juegos</NavLink>
+                      <NavLink to="/categoria/juego" className="nav-link">Juegos</NavLink>
                   </li>
                 </ul>
               </div>

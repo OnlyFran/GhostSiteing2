@@ -29,7 +29,7 @@ const ItemListContainer = () => {
     }
 
     // console.log(productos);
-    console.log(categoriaId);
+    // console.log(categoriaId);
 
     return (
         <div>
