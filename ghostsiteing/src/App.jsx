@@ -1,22 +1,26 @@
-import { useState } from 'react'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import './App.css'
-import ComponentesContainer from './components/ComponentesContainer/ComponentesContainer'
 import ItemListContainer from './components/ItemListContainer/ItemListContainer'
+import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer'
 import NavBar from './components/Navbar/NavBar'
+import NotFound from './components/NotFound/NotFound'
+import Cart from './components/CartWidget/Cart'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className="App">
-      <NavBar>
-
-        <ComponentesContainer />
-
-      </NavBar>
-
-      <ItemListContainer />
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <NavBar />
+        <Routes>
+          <Route index path='/' element={<ItemListContainer />} />
+          <Route path='/categoria/:categoriaId' element={<ItemListContainer />} />
+          <Route path='/detalle/:id' element={<ItemDetailContainer />} />
+          <Route path='/notFound' element={<NotFound />} />
+          <Route path='/cart' element={<Cart />} />
+          <Route path='*' element={ <Navigate to='NotFound' /> } />   // cualquier rutas que no este definida, redireccionará aquí
+        </Routes>
+      </div>
+    </BrowserRouter>
   )
 }
 

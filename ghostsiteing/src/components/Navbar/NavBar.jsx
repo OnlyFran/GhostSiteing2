@@ -1,39 +1,32 @@
+import { Link, NavLink } from "react-router-dom"
 import CartWidget from "../CartWidget/CartWidget"
 
-function NavBar({children}) {
+function NavBar() {
     return (
       <div className="App">
         <nav className="navbar container-fluid navbar-expand-lg navbar-dark bg-dark">
-              <a className="navbar-brand" href="#">GhostSiteing</a>
+              <Link to='/'>
+                <label className="navbar-brand" href="#">GhostSiteing</label>
+              </Link>
               <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
               </button>
               <div className="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul className="navbar-nav">
                   <li className="nav-item">
-                    <a className="nav-link" href="#">Inicio <span className="sr-only">(current)</span></a>
+                    <NavLink to='/categoria/tienda' className={ ({isActive}) => isActive ? 'boton-sombra' : 'boton' }>
+                      <label className="nav-link" href="#action1">Tienda<span className="sr-only">(current)</span></label>
+                    </NavLink>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link" href="#">Comunidad</a>
-                  </li>
-                  <li className="nav-item">
-                    <a className="nav-link" href="#">Únete</a>
-                  </li>
-                  <li className="nav-item dropdown">
-                    <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-expanded="false">
-                      Contacto
-                    </a>
-                    <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                      <a className="dropdown-item" target="_blank" href="">Instagram</a>
-                      <a className="dropdown-item" target="_blank" href="">Twitter</a>
-                      <a className="dropdown-item" target="_blank" href="">Twitch</a>
-                    </div>
+                      <NavLink to="/categoria/juegos" className="nav-link">Juegos</NavLink>
                   </li>
                 </ul>
               </div>
-              <CartWidget />
+              <Link to='/cart'>
+                <CartWidget />
+              </Link>
             </nav>
-            {children}
       </div>
     )
 }

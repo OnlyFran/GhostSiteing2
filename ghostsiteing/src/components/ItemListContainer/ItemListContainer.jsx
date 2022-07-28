@@ -1,37 +1,43 @@
-import { useEffect } from "react"
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import { Link, useParams } from "react-router-dom"
 import { getFetch } from "../GetFetch/getFetch"
 import ItemCount from "../ItemCount/ItemCount"
+import ItemList from "../ItemList/ItemList"
+import '../ItemListContainer/cartsImage.css'
 
 const ItemListContainer = () => {
     const [ productos, setProductos] = useState([])
     const [ loading, setLoading ] = useState(true)
+    
+    const { categoriaId} = useParams ()
+
     useEffect(() => {
-        getFetch()
-        .then(respuesta => setProductos(respuesta))
-        .catch( err => console.log(err) )
-        .finally( () => setLoading(false) );
-    }, [])
+        if(categoriaId){
+            getFetch()
+            .then(respuesta => setProductos(respuesta.filter(prod => prod.categoria === categoriaId )))
+            .catch( err => console.log(err) )
+            .finally( () => setLoading(false) );
+        } else {
+            getFetch()
+            .then(respuesta => setProductos(respuesta))
+            .catch( err => console.log(err) )
+            .finally( () => setLoading(false) );
+        }
+    }, [categoriaId])
+    
     const onAdd = (cant) => { console.log(`Añadidos ${cant} productos al Carrito`);
     }
 
-    console.log(productos);
+    // console.log(productos);
+    console.log(categoriaId);
 
     return (
         <div>
-            <ItemCount initial={1} stock={10} onAdd={onAdd} />
             <br />
-            {loading ? <h3>Cargando..</h3> :
-            productos?.map( producto => 
-                <div key={producto.id} className="card" >
-                    <img src={producto.imagen} className="card-img-top" alt="..." />
-                    <div className="card-body">
-                        <h5 className="card-title">{producto.nombre}</h5>
-                        <p className="card-text">{producto.descripcion}</p>
-                        <a href="#" className="btn btn-primary">¡Lo quiero!</a>
-                    </div>
-                </div>
-                )
+            {loading ? 
+                <h3>Cargando..</h3>
+                :
+                <ItemList productos = {productos} />
             }
         </div>
     )
