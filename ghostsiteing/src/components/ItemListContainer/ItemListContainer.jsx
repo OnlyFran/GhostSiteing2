@@ -9,7 +9,7 @@ const ItemListContainer = () => {
     const [ productos, setProductos] = useState([])
     const [ loading, setLoading ] = useState(true)
     
-    const { categoriaId} = useParams ()
+    const { categoriaId } = useParams ()
 
     useEffect(() => {
         if(categoriaId){
@@ -28,7 +28,7 @@ const ItemListContainer = () => {
     const onAdd = (cant) => { console.log(`Añadidos ${cant} productos al Carrito`);
     }
 
-    // console.log(productos);
+    // console.log(productouctos);
     // console.log(categoriaId);
 
     return (

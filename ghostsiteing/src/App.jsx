@@ -14,7 +14,7 @@ function App() {
         <Routes>
           <Route index path='/' element={<ItemListContainer />} />
           <Route path='/categoria/:categoriaId' element={<ItemListContainer />} />
-          <Route path='/detalle/:id' element={<ItemDetailContainer />} />
+          <Route path='/detalle/:detalleId' element={<ItemDetailContainer />} />
           <Route path='/notFound' element={<NotFound />} />
           <Route path='/cart' element={<Cart />} />
           <Route path='*' element={ <Navigate to='NotFound' /> } />   // cualquier rutas que no este definida, redireccionará aquí

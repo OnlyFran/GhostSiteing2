@@ -1,24 +1,22 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { getFetch } from '../GetFetch/getFetch'
+import { getFetch } from "../GetFetch/getFetch.js"
 import ItemDetail from './ItemDetail'
 
 const ItemDetailContainer = () => {
-  const {id} = useParams() // <- obj {detalleId : ''}
-
-  useEffect( () => {
-    getFetch(id)
-    .then( respuesta => console.log(respuesta) )
+  const [producto, setProducto] = useState({})
+  const {detalleId} = useParams()
+  
+  useEffect(() => {
+    getFetch(detalleId)
+    .then(resp => setProducto(resp))
   }, [])
-
-  console.log(id);
-
-  // getFetch(detalleId)  // pista del profe
+  console.log(detalleId)
 
   return (
     <div>
       ItemDetailContainer
-      <ItemDetail />
+      <ItemDetail producto={producto} />
     </div>
   )
 }
