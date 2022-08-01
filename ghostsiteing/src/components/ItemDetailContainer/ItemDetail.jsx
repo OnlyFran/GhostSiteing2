@@ -23,7 +23,7 @@ const ItemDetail = ({producto}) => {
         <ItemCount />
       </div>
     </div>
-  )
+  );
 }
 
 export default ItemDetail

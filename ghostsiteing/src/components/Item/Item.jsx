@@ -12,7 +12,7 @@ const Item = ({prod}) => {
         <Link to={`/detalle/${prod.id}`} className="btn btn-primary">¡Lo quiero!</Link>
       </div>
     </div>
-  )
+  );
 }
 
 export default Item

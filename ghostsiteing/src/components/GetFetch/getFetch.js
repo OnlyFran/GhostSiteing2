@@ -14,9 +14,9 @@ export const getFetch = (id) => {
     return new Promise( ( resolve, reject ) => {
         setTimeout( () => {
             if(id){
-                resolve(productos.find( producto => producto.id === id ))
+                resolve(productos.find( producto => producto.id == id ));
             } else {
-                resolve(productos)
+                resolve(productos);
             }
         }, 500)
     })

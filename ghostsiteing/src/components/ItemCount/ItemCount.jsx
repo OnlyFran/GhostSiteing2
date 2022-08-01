@@ -2,7 +2,7 @@ import { useState } from "react"
 import "../ItemCount/ItemCount.css"
 
 const ItemCount = ({ initial = 1 , stock = 10 , onAdd}) => {
-    const [count, setCount] = useState(initial)
+    const [count, setCount] = useState(initial);
 
     const handleAumento = () => {
         if(count < stock){
@@ -16,7 +16,7 @@ const ItemCount = ({ initial = 1 , stock = 10 , onAdd}) => {
         }
     }
     
-    const handleAñadirAlCarrito = () => { onAdd(count) }
+    const handleAñadirAlCarrito = () => { onAdd(count) };
 
     return (
         <div id="itemCountDiv">
@@ -26,7 +26,7 @@ const ItemCount = ({ initial = 1 , stock = 10 , onAdd}) => {
             <br />
             <button className="btn-añadirCarrito btn btn-outline-success" onClick={handleAñadirAlCarrito}>Add to Cart</button>
         </div>
-    )
+    );
 }
 
 export default ItemCount

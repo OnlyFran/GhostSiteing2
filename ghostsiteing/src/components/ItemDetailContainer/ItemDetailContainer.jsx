@@ -4,21 +4,19 @@ import { getFetch } from "../GetFetch/getFetch.js"
 import ItemDetail from './ItemDetail'
 
 const ItemDetailContainer = () => {
-  const [producto, setProducto] = useState({})
-  const {detalleId} = useParams()
+  const [producto, setProducto] = useState({});
+  const {detalleId} = useParams();
   
   useEffect(() => {
     getFetch(detalleId)
     .then(resp => setProducto(resp))
-  }, [])
-  console.log(detalleId)
+  }, []);
 
   return (
     <div>
-      ItemDetailContainer
       <ItemDetail producto={producto} />
     </div>
-  )
+  );
 }
 
 export default ItemDetailContainer

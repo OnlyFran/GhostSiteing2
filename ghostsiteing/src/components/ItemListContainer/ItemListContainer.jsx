@@ -6,10 +6,10 @@ import ItemList from "../ItemList/ItemList"
 import '../ItemListContainer/cartsImage.css'
 
 const ItemListContainer = () => {
-    const [ productos, setProductos] = useState([])
-    const [ loading, setLoading ] = useState(true)
+    const [ productos, setProductos] = useState([]);
+    const [ loading, setLoading ] = useState(true);
     
-    const { categoriaId } = useParams ()
+    const { categoriaId } = useParams ();
 
     useEffect(() => {
         if(categoriaId){
@@ -40,7 +40,7 @@ const ItemListContainer = () => {
                 <ItemList productos = {productos} />
             }
         </div>
-    )
+    );
 }
 
 export default ItemListContainer
