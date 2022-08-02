@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import Intercambiabilidad from '../../Intercambiabilidad/Intercambiabilidad.jsx'
 import { getFetch } from "../GetFetch/getFetch.js"
 import ItemDetail from './ItemDetail'
 

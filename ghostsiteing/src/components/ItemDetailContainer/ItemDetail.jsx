@@ -1,14 +1,13 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import InputCount from '../../Intercambiabilidad/InputCount';
-import Intercambiabilidad from '../../Intercambiabilidad/Intercambiabilidad';
+import InputCount from '../Intercambiabilidad/InputCount';
 import ItemCount from '../ItemCount/ItemCount'
 
 const ItemDetail = ({producto}) => {
   const [ inputType, setInputType ] = useState('button');
   const handleInter = () => {
-    setInputType('input')
-  }
+        setInputType('input')
+    }
 
   const onAdd = (cant) => {
     console.log(`${cant} "${producto.nombre}" agregados`);
@@ -28,7 +27,7 @@ const ItemDetail = ({producto}) => {
       </div>
 
       <div className="col">
-        {inputType === 'button'
+        {inputType == 'button'
         ?
         <ItemCount initial={1} stock={15} onAdd={onAdd} handleInter={handleInter} />
         :

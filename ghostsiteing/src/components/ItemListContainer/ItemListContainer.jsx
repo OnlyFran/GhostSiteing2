@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom"
 import { getFetch } from "../GetFetch/getFetch"
 import ItemList from "../ItemList/ItemList"
 import '../ItemListContainer/cartsImage.css'
+import Loading from "../Loading/Loading"
 
 const ItemListContainer = () => {
     const [ productos, setProductos] = useState([]);
@@ -28,7 +29,7 @@ const ItemListContainer = () => {
         <div>
             <br />
             {loading ? 
-                <h3>Cargando..</h3>
+                <Loading />
                 :
                 <ItemList productos = {productos} />
             }
