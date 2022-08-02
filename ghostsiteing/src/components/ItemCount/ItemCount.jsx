@@ -16,7 +16,11 @@ const ItemCount = ({ initial = 1 , stock = 10 , onAdd}) => {
         }
     }
     
-    const handleAñadirAlCarrito = () => { onAdd(count) };
+    const handleAñadirAlCarrito = () => {
+        if(count < stock){
+            onAdd(count);
+        }
+    }
 
     return (
         <div id="itemCountDiv">

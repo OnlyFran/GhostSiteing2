@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react"
 import { Link, useParams } from "react-router-dom"
 import { getFetch } from "../GetFetch/getFetch"
-import ItemCount from "../ItemCount/ItemCount"
 import ItemList from "../ItemList/ItemList"
 import '../ItemListContainer/cartsImage.css'
 
@@ -24,12 +23,6 @@ const ItemListContainer = () => {
             .finally( () => setLoading(false) );
         }
     }, [categoriaId])
-    
-    const onAdd = (cant) => { console.log(`Añadidos ${cant} productos al Carrito`);
-    }
-
-    // console.log(productouctos);
-    // console.log(categoriaId);
 
     return (
         <div>
