@@ -1,16 +1,21 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useCartContext } from '../../context/CartContext';
 import InputCount from '../Intercambiabilidad/InputCount';
 import ItemCount from '../ItemCount/ItemCount'
 
 const ItemDetail = ({producto}) => {
   const [ inputType, setInputType ] = useState('button');
+
   const handleInter = () => {
         setInputType('input')
-    }
+  }
+
+  const {addToCart, cartList} = useCartContext()
 
   const onAdd = (cant) => {
     console.log(`${cant} "${producto.nombre}" agregados`);
+    addToCart({...producto, cantidad: cant});
   }
 
   return (
