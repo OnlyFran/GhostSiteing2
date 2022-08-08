@@ -17,7 +17,7 @@ const ItemCount = ({ initial = 1 , stock = 10 , onAdd, handleInter}) => {
     }
     
     const handleAñadirAlCarrito = () => {
-        if(count < stock){
+        if(count <= stock){
             onAdd(count);
             handleInter();
         }

@@ -26,14 +26,13 @@ const ItemListContainer = () => {
     }, [categoriaId])
 
     return (
-        <div>
-            <br />
+        <>
             {loading ? 
                 <Loading />
                 :
                 <ItemList productos = {productos} />
             }
-        </div>
+        </>
     );
 }
 

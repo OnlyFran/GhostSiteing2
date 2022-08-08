@@ -1,14 +1,15 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useCartContext } from '../../context/CartContext';
+import VolverAlMenu from '../button/VolverAlMenu';
 import InputCount from '../Intercambiabilidad/InputCount';
 import ItemCount from '../ItemCount/ItemCount'
 
 const ItemDetail = ({producto}) => {
-  const [ inputType, setInputType ] = useState('button');
+  const [ inputType, setInputType ] = useState('contadorActivo');
 
   const handleInter = () => {
-        setInputType('input')
+        setInputType('contadorInactivo')
   }
 
   const {addToCart, cartList} = useCartContext()
@@ -32,11 +33,14 @@ const ItemDetail = ({producto}) => {
       </div>
 
       <div className="col">
-        {inputType == 'button'
+        {inputType == 'contadorActivo'
         ?
         <ItemCount initial={1} stock={15} onAdd={onAdd} handleInter={handleInter} />
         :
+        <>
         <InputCount />
+        <VolverAlMenu />
+        </>
         }
       </div>
     </div>

@@ -1,9 +1,10 @@
 import React from 'react'
 import { useCartContext } from '../../context/CartContext'
+import VolverAlMenu from '../button/VolverAlMenu'
 
 const Cart = () => {
 
-  const { cartList, vaciarCarrito } = useCartContext()
+  const { cartList, vaciarCarrito, precioTotal, removeFromCart } = useCartContext()
   return (
     <div>
       <ul>
@@ -15,14 +16,25 @@ const Cart = () => {
                 <div className="card-body">
                   <h5 className="card-title">{item.nombre}</h5>
                   <p className="card-text">{item.descripcion}</p>
-                  <p className="card-text">{item.cantidad}</p>
+                  <p className="card-text">Cantidad seleccionada: {item.cantidad}</p>
+                  <p className='card-text'>Precio por unidad: ${item.precio}</p>
+                  <button onClick={() => removeFromCart(item.id)} className="btn btn-outline-danger">X</button>
                 </div>
               </div>
             </div>
           </li> 
         ))}
       </ul>
+      <p>{precioTotal() !== 0 && `Precio final: $${precioTotal()}`}</p>
+      {cartList != ""
+      ?
       <button onClick={vaciarCarrito}>Vaciar Carrito</button>
+      :
+      <>
+      <p>No hay nada por aquí..</p>
+      <VolverAlMenu />
+      </>
+      }
     </div>
   )
 }
